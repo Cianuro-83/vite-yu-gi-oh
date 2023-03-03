@@ -14,11 +14,7 @@
       </div>
       <div class="card">
         <ul class="grid">
-          <li v-for="card in cards" :key="card.id">
-            <img :src="card.card_images[0].image_url" alt="" class="thumb" />
-            <h3 class="name">{{ card.name }}</h3>
-            <p>{{ card.archetype }}</p>
-          </li>
+          <Card v-for="el in card" :key="card.id" :card="el" />
         </ul>
       </div>
     </div>
@@ -27,7 +23,11 @@
 
 <script>
 import axios from "axios";
+import Card from "./Card.vue";
 export default {
+  components: {
+    Card,
+  },
   data() {
     return {
       cards: [],
@@ -81,17 +81,5 @@ select {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
-}
-li {
-  h3 {
-    color: red;
-    text-align: center;
-    text-transform: uppercase;
-    margin-top: 20px;
-  }
-  p {
-    text-align: center;
-    margin-top: 20px;
-  }
 }
 </style>
