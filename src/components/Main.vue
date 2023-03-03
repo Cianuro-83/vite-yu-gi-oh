@@ -12,6 +12,30 @@
       <div class="result-info">
         <h3>Trovate 41 card</h3>
       </div>
+      <div class="card">
+        <ul class="grid">
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+          <li>Yu-Gi-Ho card</li>
+        </ul>
+      </div>
     </div>
   </main>
 </template>
@@ -41,5 +65,10 @@ select {
     line-height: 2rem;
     padding: 20px 10px;
   }
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
 }
 </style>
