@@ -14,26 +14,11 @@
       </div>
       <div class="card">
         <ul class="grid">
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
-          <li>Yu-Gi-Ho card</li>
+          <li v-for="card in cards" :key="card.id">
+            <img :src="card.card_images[0].image_url" alt="" class="thumb" />
+            <h3 class="name">{{ card.name }}</h3>
+            <p>{{ card.archetype }}</p>
+          </li>
         </ul>
       </div>
     </div>
@@ -45,24 +30,32 @@ import axios from "axios";
 export default {
   data() {
     return {
-      card: [],
+      cards: [],
       //********************
       // FINE RETURN
     };
     // FINE DATA
   },
   //******************** */
-    methods() {
-        prendiData(){
-            axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0`).then((res) => {
-                console.log(res.data.data)
-            this.card = res.data.data
-        })
+  methods: {
+    prendiCard() {
+      axios
+        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          console.log(res.data.data);
+          this.cards = res.data.data;
+          console.log(this.card);
+        });
     },
     //********************
     // FINE METHODS
   },
   //******************** */
+  created() {
+    this.prendiCard();
+  },
 };
 </script>
 
@@ -74,7 +67,7 @@ select {
   margin: 30px 10px;
 }
 .container.box {
-  background-color: aqua;
+  background-color: rgb(143, 139, 31);
   padding: 50px;
   color: black;
   .result-info {
@@ -88,5 +81,17 @@ select {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
+}
+li {
+  h3 {
+    color: red;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+  p {
+    text-align: center;
+    margin-top: 20px;
+  }
 }
 </style>
