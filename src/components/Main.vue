@@ -14,7 +14,7 @@
       </div>
       <div class="card">
         <ul class="grid">
-          <Card v-for="el in card" :key="card.id" :card="el" />
+          <Card v-for="(el, i) in cards" :key="el.id" :card="el" />
         </ul>
       </div>
     </div>
@@ -46,7 +46,7 @@ export default {
           console.log(res.data);
           console.log(res.data.data);
           this.cards = res.data.data;
-          console.log(this.card);
+          console.log(this.cards);
         });
     },
     //********************
