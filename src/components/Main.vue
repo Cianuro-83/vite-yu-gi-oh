@@ -69,15 +69,15 @@ select {
   margin: 30px 10px;
 }
 .container.box {
-  background-image: url(../assets/motion.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top;
+  background-image: url(../assets/tumblr_ntahc6bHBL1uue2e4o1_500.gif);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: top;
   padding: 50px;
   color: black;
   .result-info {
     color: white;
-    // background-color: rgba(234, 169, 18, 0.5);
+    background-color: rgba(234, 169, 18, 0.9);
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -24,6 +24,10 @@ export default {
 <style lang="scss" scoped>
 @use "../style/partials/variables" as *;
 li {
+  &:hover {
+    filter: drop-shadow(0 0 2em #f00303aa);
+    cursor: pointer;
+  }
   background-color: rgba(0, 0, 0, 0.519);
   h3 {
     color: red;
