@@ -67,12 +67,16 @@ select {
   margin: 30px 10px;
 }
 .container.box {
-  background-color: rgb(143, 139, 31);
+  background-image: url(../assets/sfondo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   padding: 50px;
   color: black;
   .result-info {
     color: white;
-    background-color: black;
+    background-color: rgba(234, 169, 18, 0.5);
+
     line-height: 2rem;
     padding: 20px 10px;
   }

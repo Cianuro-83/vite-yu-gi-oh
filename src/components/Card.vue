@@ -24,6 +24,7 @@ export default {
 <style lang="scss" scoped>
 @use "../style/partials/variables" as *;
 li {
+  background-color: rgba(0, 0, 0, 0.519);
   h3 {
     color: red;
     text-align: center;
@@ -35,6 +36,8 @@ li {
   p {
     text-align: center;
     margin-top: 20px;
+    color: white;
+    margin-bottom: 15px;
   }
 }
 </style>
