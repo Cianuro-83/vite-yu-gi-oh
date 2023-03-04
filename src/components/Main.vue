@@ -10,7 +10,9 @@
     </div>
     <div class="container box">
       <div class="result-info">
+        <img src="../assets/gif_animate_yu-gi-oh10.gif" alt="" />
         <h3>Trovate 41 card</h3>
+        <img src="../assets/gif_animate_yu-gi-oh10.gif" alt="" />
       </div>
       <div class="card">
         <ul class="grid">
@@ -67,18 +69,23 @@ select {
   margin: 30px 10px;
 }
 .container.box {
-  background-image: url(../assets/sfondo.jpg);
+  background-image: url(../assets/motion.gif);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: top;
   padding: 50px;
   color: black;
   .result-info {
     color: white;
-    background-color: rgba(234, 169, 18, 0.5);
-
+    // background-color: rgba(234, 169, 18, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     line-height: 2rem;
     padding: 20px 10px;
+  }
+  img {
+    width: 400px;
   }
 }
 .grid {
