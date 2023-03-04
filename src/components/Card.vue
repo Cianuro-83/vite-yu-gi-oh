@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   components: {
-    axios,
+    // axios,
   },
   props: {
     card: {
@@ -29,6 +29,8 @@ li {
     text-align: center;
     text-transform: uppercase;
     margin-top: 20px;
+    font-size: 15px;
+    height: 10%;
   }
   p {
     text-align: center;
