@@ -1,12 +1,13 @@
 <template>
   <main>
     <div class="container">
-      <select name="cianuro" id="">
+      <Filtro @inRicerca="prendiCard" />
+      <!-- <select name="cianuro" id="">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
-      </select>
+      </select> -->
     </div>
     <div class="container box">
       <div class="card">
@@ -24,10 +25,12 @@ import axios from "axios";
 import Card from "./Card.vue";
 import store from "../store";
 import TotCards from "./TotCards.vue";
+import Filtro from "./Filtro.vue";
 export default {
   components: {
     Card,
     TotCards,
+    Filtro,
   },
   data() {
     return {
@@ -40,14 +43,19 @@ export default {
   //******************** */
   methods: {
     prendiCard() {
+      let cerca = this.store.cerca;
       axios
-        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
+        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0",
+          params: {
+            fname:cerca,
+        }
+        })
         .then((res) => {
           console.log(res);
           console.log(res.data);
           console.log(res.data.data);
           this.store.cards = res.data.data;
-          console.log(this.cards);
+          console.log(this.store.cards);
         });
     },
     //********************
@@ -76,5 +84,6 @@ select {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
+  z-index: 999;
 }
 </style>
