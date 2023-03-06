@@ -12,7 +12,7 @@
     <div class="container box">
       <div class="card">
         <TotCards />
-        <ul v-if="store.cards.lenght > 0" class="grid">
+        <ul v-if="this.store.cards.length > 0" class="grid">
           <Card v-for="(el, i) in this.store.cards" :key="el.id" :card="el" />
         </ul>
         <div v-else>
@@ -50,10 +50,10 @@ export default {
     prendiCard() {
       let cerca = this.store.cerca;
       axios
-        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0",{
-          {params: {
-          fname: cerca,
-        },
+        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0", {
+          params: {
+            fname: cerca,
+          },
         })
         .then((res) => {
           console.log(res);
@@ -61,12 +61,14 @@ export default {
           console.log(res.data.data);
           this.store.cards = res.data.data;
           console.log(this.store.cards);
-        }).catch((err) => {
-          this.store.cards = []
         })
+        .catch((error) => {
+          this.store.cards = [];
+        });
+
+      //********************
+      // FINE METHODS
     },
-    //********************
-    // FINE METHODS
   },
   //******************** */
   created() {
@@ -92,5 +94,20 @@ select {
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
   z-index: 999;
+}
+.error {
+  text-transform: uppercase;
+  color: red;
+  text-align: center;
+  font-size: 45px;
+  font-weight: bolder;
+  &::before {
+    content: "---->";
+    color: greenyellow;
+  }
+  &::after {
+    content: "<----";
+    color: greenyellow;
+  }
 }
 </style>
