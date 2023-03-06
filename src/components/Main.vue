@@ -12,9 +12,14 @@
     <div class="container box">
       <div class="card">
         <TotCards />
-        <ul class="grid">
+        <ul v-if="store.cards.lenght > 0" class="grid">
           <Card v-for="(el, i) in this.store.cards" :key="el.id" :card="el" />
         </ul>
+        <div v-else>
+          <h2 class="error">
+            siamo spiacenti, la tua ricerca non ha prodotto risultati
+          </h2>
+        </div>
       </div>
     </div>
   </main>
@@ -45,10 +50,10 @@ export default {
     prendiCard() {
       let cerca = this.store.cerca;
       axios
-        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0",
-          params: {
-            fname:cerca,
-        }
+        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0",{
+          {params: {
+          fname: cerca,
+        },
         })
         .then((res) => {
           console.log(res);
@@ -56,7 +61,9 @@ export default {
           console.log(res.data.data);
           this.store.cards = res.data.data;
           console.log(this.store.cards);
-        });
+        }).catch((err) => {
+          this.store.cards = []
+        })
     },
     //********************
     // FINE METHODS

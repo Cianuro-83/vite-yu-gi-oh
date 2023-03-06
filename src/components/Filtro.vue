@@ -1,7 +1,12 @@
 <template>
   <div class="container">
-    <input @keydown.enter="$emit("inRicerca")" type="text" class="input-filtro"
-    v-model="store.cerca" placeholder="Filtra card per nome" />
+    <input
+      @keydown.enter="$emit(`inRicerca`)"
+      type="text"
+      class="input-filtro"
+      v-model="store.cerca"
+      placeholder="Filtra card per nome"
+    />
   </div>
 </template>
 
