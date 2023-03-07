@@ -6,6 +6,8 @@ const store = reactive({
   pages: 0,
   currentPage: 1,
   cerca: "",
+  selectArchetype: "",
+  num: "50",
 });
 
 export default store;

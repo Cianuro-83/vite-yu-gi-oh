@@ -1,13 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <Filtro @inRicerca="prendiCard" />
-      <!-- <select name="cianuro" id="">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select> -->
+      <Filtro @inRicerca="prendiCard" @onArchetypeChange="prendiCard" />
     </div>
     <div class="container box">
       <div class="card">
@@ -40,6 +34,7 @@ export default {
   data() {
     return {
       store,
+
       //********************
       // FINE RETURN
     };
@@ -49,10 +44,12 @@ export default {
   methods: {
     prendiCard() {
       let cerca = this.store.cerca;
+      let archetype = this.store.selectArchetype;
       axios
         .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0", {
           params: {
             fname: cerca,
+            // archetype: archetype,
           },
         })
         .then((res) => {

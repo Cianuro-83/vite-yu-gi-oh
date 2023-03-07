@@ -10,6 +10,18 @@
       />
       <span class="empty" @click="this.store.cerca = ``">X</span>
     </div>
+    <div class="archetype">
+      <select
+        id=""
+        @change="$emit(`onArchetypeChange`)"
+        v-model="this.store.selectArchetype"
+      >
+        <option value="">--- FILTRA PER TIPO ---</option>
+        <option v-for="el in this.store.cards" :value="el.type" :key="el.id">
+          {{ el.type }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 
